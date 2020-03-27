@@ -1,0 +1,13 @@
+{
+    "name": "akrami/worldmap2d",
+    "description": "a 2D world map generator",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alireza Akrami",
+            "email": "akrami.ui@gmail.com"
+        }
+    ],
+    "require": {}
+}
