@@ -28,6 +28,24 @@ class Corner
      */
     private $adjacent;
 
+    /**
+     * if all around centers are water
+     * @var bool
+     */
+    private $water = false;
+
+    /**
+     * one of centers is water and another is ocean
+     * @var bool
+     */
+    private $coast = false;
+
+    /**
+     * all centers around are ocean
+     * @var bool
+     */
+    private $ocean = false;
+
 
     public function __construct(int $x, int $y)
     {

@@ -28,6 +28,24 @@ class Center
      */
     private $corners;
 
+    /**
+     * if this tile has water. if it's water and connected to ocean so it is ocean
+     * @var bool
+     */
+    private $water = false;
+
+    /**
+     * it is a land but connected to an ocean tile
+     * @var bool
+     */
+    private $coast = false;
+
+    /**
+     * all border tiles are ocean. all water tiles connected to ocean are ocean
+     * @var bool
+     */
+    private $ocean = false;
+
     public function __construct(int $x, int $y)
     {
         $this->x = $x;
