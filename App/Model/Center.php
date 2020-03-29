@@ -98,6 +98,14 @@ class Center
     }
 
     /**
+     * @param Center $neighbor
+     */
+    public function addNeighbor(Center $neighbor): void
+    {
+        $this->neighbors[] = $neighbor;
+    }
+
+    /**
      * @return array
      */
     public function getNeighbors(): array
