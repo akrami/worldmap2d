@@ -14,16 +14,19 @@ class Corner
     private $y;
 
     /**
+     * set of Centers which touch this Corner
      * @var array(Center)
      */
     private $touches;
 
     /**
+     * set of Edges touching this Corner
      * @var array(Edge)
      */
     private $protrudes;
 
     /**
+     * set of Corners connected to this Corner
      * @var array(Corner)
      */
     private $adjacent;

@@ -4,21 +4,25 @@ namespace App\Model;
 class Edge
 {
     /**
+     * one of adjacent Centers
      * @var Center
      */
     private $d0;
 
     /**
+     * one of adjacent Centers
      * @var Center
      */
     private $d1;
 
     /**
+     * one of connected Corners
      * @var Corner
      */
     private $v0;
 
     /**
+     * one of connected Corners
      * @var Corner
      */
     private $v1;

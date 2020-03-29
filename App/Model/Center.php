@@ -14,16 +14,19 @@ class Center
     private $y;
 
     /**
+     * set of adjacent Centers
      * @var array(Center)
      */
     private $neighbors;
 
     /**
+     * set of bordering Edges
      * @var array(Edge)
      */
     private $borders;
 
     /**
+     * set of Corners around this Center
      * @var array(Corner)
      */
     private $corners;
