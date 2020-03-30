@@ -111,6 +111,14 @@ class Center
     }
 
     /**
+     * @param Edge $border
+     */
+    public function addBorder(Edge $border): void
+    {
+        $this->borders[] = $border;
+    }
+
+    /**
      * @return array
      */
     public function getBorders(): array

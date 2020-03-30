@@ -133,6 +133,14 @@ class Corner
     }
 
     /**
+     * @param Edge $edge
+     */
+    public function addProtrude(Edge $edge): void
+    {
+        $this->protrudes[] = $edge;
+    }
+
+    /**
      * @return array
      */
     public function getProtrudes(): array

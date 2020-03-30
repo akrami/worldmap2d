@@ -2,6 +2,7 @@
 
 use App\Model\Center;
 use App\Model\Corner;
+use App\Model\Edge;
 
 require_once __DIR__ . '/bootstrap.php';
 
@@ -12,7 +13,10 @@ $dimension = 4;
 $map = [
     "centers" => array(array()),
     "corners" => array(array()),
-    "edges"   => array(array())
+    "edges"   => [
+        "v" => array(array()),
+        "h" => array(array())
+    ]
 ];
 
 // Center Creation
@@ -60,6 +64,8 @@ for ($i = 0; $i <= $dimension; $i++){
     }
 }
 
+echo "[STATUS]: Corner creation finished\n";
+
 // Corner Adjacent
 for ($i = 0; $i <= $dimension; $i++) {
     for ($j = 0; $j <= $dimension; $j++) {
@@ -70,4 +76,32 @@ for ($i = 0; $i <= $dimension; $i++) {
     }
 }
 
+echo "[STATUS]: Corner Adjacent finished\n";
+
 // TODO: Edge Creation & Center.borders & Corner.protrudes
+for ($i = 0; $i < $dimension; $i++) {
+    for ($j = 0; $j < $dimension; $j++) {
+        if ($j<$dimension-1) {
+            $map["edges"]["v"][$i][$j] = new Edge($map["centers"][$i][$j],
+                                                  $map["centers"][$i][$j+1],
+                                                  $map["corners"][$i][$j+1],
+                                                  $map["corners"][$i+1][$j+1]);
+            $map["centers"][$i][$j]->addBorder($map["edges"]["v"][$i][$j]);
+            $map["centers"][$i][$j+1]->addBorder($map["edges"]["v"][$i][$j]);
+            $map["corners"][$i][$j+1]->addProtrude($map["edges"]["v"][$i][$j]);
+            $map["corners"][$i+1][$j+1]->addProtrude($map["edges"]["v"][$i][$j]);
+        }
+        if ($i<$dimension-1) {
+            $map["edges"]["h"][$i][$j] = new Edge($map["centers"][$i][$j],
+                                                  $map["centers"][$i+1][$j],
+                                                  $map["corners"][$i+1][$j],
+                                                  $map["corners"][$i+1][$j+1]);
+            $map["centers"][$i][$j]->addBorder($map["edges"]["h"][$i][$j]);
+            $map["centers"][$i+1][$j]->addBorder($map["edges"]["h"][$i][$j]);
+            $map["corners"][$i+1][$j]->addProtrude($map["edges"]["h"][$i][$j]);
+            $map["corners"][$i+1][$j+1]->addProtrude($map["edges"]["h"][$i][$j]);
+        }
+    }
+}
+
+echo "[STATUS]: Edge creation finished\n";
