@@ -85,6 +85,14 @@ class Corner
     }
 
     /**
+     * @param Corner $corner
+     */
+    public function addAdjacent(Corner $corner): void
+    {
+        $this->adjacent[] = $corner;
+    }
+
+    /**
      * @return array
      */
     public function getAdjacent(): array

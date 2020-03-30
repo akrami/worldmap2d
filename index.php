@@ -60,30 +60,14 @@ for ($i = 0; $i <= $dimension; $i++){
     }
 }
 
-echo "[STATUS]: Corner creation finished\n";
-echo "Corners around Center(0,0) are: ";
-foreach ($map["centers"][0][0]->getCorners() as $corner){
-    echo $corner;
+// Corner Adjacent
+for ($i = 0; $i <= $dimension; $i++) {
+    for ($j = 0; $j <= $dimension; $j++) {
+        if ($i>0) $map["corners"][$i][$j]->addAdjacent($map["corners"][$i-1][$j]);
+        if ($i<$dimension) $map["corners"][$i][$j]->addAdjacent($map["corners"][$i+1][$j]);
+        if ($j>0) $map["corners"][$i][$j]->addAdjacent($map["corners"][$i][$j-1]);
+        if ($j<$dimension) $map["corners"][$i][$j]->addAdjacent($map["corners"][$i][$j+1]);
+    }
 }
-
-echo "\n";
-echo "Centers around Corner(0,0) are: ";
-foreach ($map["corners"][0][0]->getTouches() as $center){
-    echo $center;
-}
-
-echo "\n";
-echo "Centers around Corner(0,1) are: ";
-foreach ($map["corners"][0][1]->getTouches() as $center){
-    echo $center;
-}
-
-echo "\n";
-echo "Centers around Corner(1,1) are: ";
-foreach ($map["corners"][1][1]->getTouches() as $center){
-    echo $center;
-}
-
-// TODO: Corner Adjacent
 
 // TODO: Edge Creation & Center.borders & Corner.protrudes
