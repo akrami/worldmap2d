@@ -87,6 +87,14 @@ class Center
     }
 
     /**
+     * @param Corner $corner
+     */
+    public function addCorner(Corner $corner): void
+    {
+        $this->corners[] = $corner;
+    }
+
+    /**
      * @return array
      */
     public function getCorners(): array

@@ -56,6 +56,11 @@ class Corner
         $this->y = $y;
     }
 
+    public function __toString()
+    {
+        return '('.$this->x.','.$this->y.')';
+    }
+
     /**
      * @param int $x
      * @param int $y
@@ -93,6 +98,14 @@ class Corner
     public function setTouches(array $touches): void
     {
         $this->touches = $touches;
+    }
+
+    /**
+     * @param Center $touch
+     */
+    public function addTouches(Center $touch): void
+    {
+        $this->touches[] = $touch;
     }
 
     /**
