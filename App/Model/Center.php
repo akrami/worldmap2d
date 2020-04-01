@@ -37,18 +37,6 @@ class Center
      */
     private $water = false;
 
-    /**
-     * it is a land but connected to an ocean tile
-     * @var bool
-     */
-    private $coast = false;
-
-    /**
-     * all border tiles are ocean. all water tiles connected to ocean are ocean
-     * @var bool
-     */
-    private $ocean = false;
-
     public function __construct(int $x, int $y)
     {
         $this->x = $x;
@@ -148,5 +136,21 @@ class Center
     public function getNeighbors(): array
     {
         return $this->neighbors;
+    }
+
+    /**
+     * @param bool $water
+     */
+    public function setWater(bool $water): void
+    {
+        $this->water = $water;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isWater(): bool
+    {
+        return $this->water;
     }
 }
