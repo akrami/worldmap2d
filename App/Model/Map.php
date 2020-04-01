@@ -36,9 +36,9 @@ class Map
         $this->width = $width;
         $this->createCenters($this->map["centers"]);
         $this->calculateNeighbors($this->map["centers"]);
-        $this->createCorners($this->map["corners"], $this->map["centers"]);
-        $this->calculateAdjacent($this->map["corners"]);
-        $this->createEdges($this->map["edges"], $this->map["centers"], $this->map["corners"]);
+//        $this->createCorners($this->map["corners"], $this->map["centers"]);
+//        $this->calculateAdjacent($this->map["corners"]);
+//        $this->createEdges($this->map["edges"], $this->map["centers"], $this->map["corners"]);
         $moisture = $this->calculateMoisture();
         $this->calculateWater($moisture, $this->map["centers"]);
     }
